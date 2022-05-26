@@ -1,4 +1,4 @@
-package;
+package;FNF psych engine 0.5.1
 
 import flixel.FlxG;
 import flixel.input.FlxInput;
