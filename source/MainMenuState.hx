@@ -41,7 +41,7 @@ class MainMenuState extends MusicBeatState
         public static var firstStart:Bool = true;
 
 	var optionShit:Array<String> = [
-		'story_mode',
+		//'story_mode',
 		'freeplay',
         #if MODS_ALLOWED 'mods', #end
 		'credits',
@@ -166,7 +166,7 @@ class MainMenuState extends MusicBeatState
 		changeItem();
 		
 		#if android
-		addVirtualPad(UP_DOWN, A_B_E);
+		addVirtualPad(UP_DOWN, A_B);
 		#end
 
 		super.create();
@@ -185,8 +185,6 @@ class MainMenuState extends MusicBeatState
 
 		var lerpVal:Float = CoolUtil.boundTo(elapsed * 9, 0, 1);
 
-        if(FlxG.keys.justPressed.F11)
-    		FlxG.fullscreen = !FlxG.fullscreen;
 		if(selectedSomethin)
 			new FlxTimer().start(0.1, function(tmr:FlxTimer)
 				{
@@ -209,7 +207,7 @@ class MainMenuState extends MusicBeatState
 				changeItem(1);
 			}
 
-            if (controls.BACK)
+            if (_virtualpad.buttonB.justPressed)
 			{
 				selectedSomethin = true;
 				FlxG.sound.play(Paths.sound('cancelMenu'));
@@ -220,15 +218,7 @@ class MainMenuState extends MusicBeatState
 			{
 				select();
 			}
-			#if desktop
-			else if (FlxG.keys.anyJustPressed(debugKeys))
-			{
-				selectedSomethin = true;
-				MusicBeatState.switchState(new MasterEditorMenu());
-			}
-			#end
-		}
-
+			
 		FlxG.watch.addQuick("beatShit", curBeat);
 
 		super.update(elapsed);
