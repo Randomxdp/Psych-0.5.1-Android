@@ -227,7 +227,7 @@ class MainMenuState extends MusicBeatState
                 FlxG.mouse.visible = false;
 			}
 
-			if (controls.ACCEPT || FlxG.mouse.justPressed)
+			if (_virtualpad.buttonA.justPressed)
 			{
 				select();
 			}
