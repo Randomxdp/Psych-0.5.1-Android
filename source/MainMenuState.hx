@@ -64,7 +64,7 @@ class MainMenuState extends MusicBeatState
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menu", null);
 		#end
-        WeekData.loadTheFirstEnabledMod();
+
         FlxG.watch.addQuick("beatShit", curBeat);
 		FlxG.watch.addQuick("stepShit", curStep);
 
@@ -380,8 +380,7 @@ class MainMenuState extends MusicBeatState
 									case 'credits':
 										MusicBeatState.switchState(new CreditsState());
 									case 'options':
-										//MusicBeatState.switchState(new options.OptionsState());
-										MusicBeatState.switchState(new options.OptionsDirect());
+										MusicBeatState.switchState(new options.OptionsState());
 
                                         FreeplayState.destroyFreeplayVocals();
                                         FlxG.sound.music.stop();
