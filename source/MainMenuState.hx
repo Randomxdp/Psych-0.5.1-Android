@@ -17,15 +17,11 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.system.FlxAssets;
 import flixel.util.FlxColor;
-import Shaders;
-import data.WeekData;
-import flixel.system.FlxAssets.FlxShader;
 import lime.app.Application;
 import editors.MasterEditorMenu;
 import flixel.input.keyboard.FlxKey;
 import flixel.util.FlxTimer;
 import flixel.addons.display.FlxBackdrop;
-import data.EngineData;
 import Conductor;
 
 using StringTools;
