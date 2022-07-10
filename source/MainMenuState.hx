@@ -265,7 +265,9 @@ class MainMenuState extends MusicBeatState
 
 	override function beatHit()
 		{
-			super.beatHit();		
+			super.beatHit();
+            		if(curBeat % 2 == 0)
+			bgClick();				
 		}
 
     function changeItem(huh:Int = 0)
@@ -295,6 +297,23 @@ class MainMenuState extends MusicBeatState
 				} 
 			}); 
 	}
+
+	function bgClick()
+		{
+			if(clickCount > 1)
+				clickCount = 0;
+
+			switch(clickCount)
+			{
+				case 0:
+					colorEntry = 0xFF8971f9;
+				case 1:
+					colorEntry = 0xFFdf7098;
+			}
+
+			FlxTween.color(movingBG, 0.7, colorEntry, 0xfffde871, {ease: FlxEase.quadOut});
+			clickCount++;	
+		}
 
         function select()
 		{
