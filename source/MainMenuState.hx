@@ -249,13 +249,7 @@ class MainMenuState extends MusicBeatState
 
 	}
 
-	override function stepHit()
-		{
-			super.stepHit();
-		}
-
-	override function beatHit()
-		{
+		override function beatHit() {
 			super.beatHit();
             		if(curBeat % 2 == 0)
 			bgColorChange();				
