@@ -75,9 +75,6 @@ class MainMenuState extends MusicBeatState
 			Conductor.changeBPM(102);
 		}
 
-        FlxG.mouse.visible = false;
-        //FlxG.mouse.useSystemCursor = true;
-
 		//Application.current.window.title = 'Main Menu';
 		
 		camGame = new FlxCamera();
@@ -176,9 +173,7 @@ class MainMenuState extends MusicBeatState
 	}
 
 	var selectedSomethin:Bool = false;
-	var clickCount:Int = 0;
 	var colorEntry:FlxColor;
-    var oldPos = FlxG.mouse.getScreenPosition();
 	
 	override function update(elapsed:Float)
 	{		
@@ -194,7 +189,6 @@ class MainMenuState extends MusicBeatState
 		if(selectedSomethin)
 			new FlxTimer().start(0.1, function(tmr:FlxTimer)
 				{
-					FlxG.mouse.visible = false;
                     movingBG.velocity.x -= (40 / ClientPrefs.framerate * 60);
 				});
 
@@ -202,11 +196,6 @@ class MainMenuState extends MusicBeatState
 
 		if (!selectedSomethin)
 		{
-			if(FlxG.mouse.wheel != 0)
-				{
-					FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
-					changeItem(-FlxG.mouse.wheel);
-				}
 			
 			if (controls.UI_UP_P)
 			{
@@ -224,7 +213,6 @@ class MainMenuState extends MusicBeatState
 				selectedSomethin = true;
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 				MusicBeatState.switchState(new TitleState());
-                FlxG.mouse.visible = false;
 			}
 
 			if (_virtualpad.buttonA.justPressed)
@@ -277,10 +265,8 @@ class MainMenuState extends MusicBeatState
 
 	override function beatHit()
 		{
-			super.beatHit();
-            if(curBeat % 2 == 0)
-			bgClick();		
-		} // no Epilepsy - PurSnake
+			super.beatHit();		
+		}
 
     function changeItem(huh:Int = 0)
 	{
@@ -309,24 +295,6 @@ class MainMenuState extends MusicBeatState
 				} 
 			}); 
 	}
-
-	function bgClick()
-		{
-			if(clickCount > 1)
-				clickCount = 0;
-			
-			switch(clickCount)
-			{
-				case 0:
-					colorEntry = 0xFF8971f9;
-				case 1:
-					colorEntry = 0xFFdf7098;
-			}
-
-			FlxTween.color(movingBG, 0.7, colorEntry, 0xfffde871, {ease: FlxEase.quadOut});
-			clickCount++;	
-		}
-
 
         function select()
 		{
