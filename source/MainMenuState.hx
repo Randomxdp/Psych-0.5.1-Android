@@ -173,7 +173,7 @@ class MainMenuState extends MusicBeatState
 	}
 
 	var selectedSomethin:Bool = false;
-	var clickCount:Int = 0;
+	var bgBeat:Int = 0;
 	var colorEntry:FlxColor;
 	
 	override function update(elapsed:Float)
