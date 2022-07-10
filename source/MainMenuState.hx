@@ -268,7 +268,7 @@ class MainMenuState extends MusicBeatState
 		{
 			super.beatHit();
             		if(curBeat % 2 == 0)
-			bgColor();				
+			bgColorChange();				
 		}
 
     function changeItem(huh:Int = 0)
@@ -299,7 +299,7 @@ class MainMenuState extends MusicBeatState
 			}); 
 	}
 
-	function bgColor()
+	function bgColorChange()
 		{
 			if(bgBeat > 1)
 				bgBeat = 0;
