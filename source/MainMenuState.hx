@@ -78,7 +78,7 @@ class MainMenuState extends MusicBeatState
         FlxG.mouse.visible = false;
         //FlxG.mouse.useSystemCursor = true;
 
-		Application.current.window.title = Main.appTitle + ' - Main Menu';
+		//Application.current.window.title = 'Main Menu';
 		
 		camGame = new FlxCamera();
 
