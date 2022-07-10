@@ -267,7 +267,7 @@ class MainMenuState extends MusicBeatState
 		{
 			super.beatHit();
             		if(curBeat % 2 == 0)
-			bgClick();				
+			bgColor();				
 		}
 
     function changeItem(huh:Int = 0)
@@ -298,12 +298,12 @@ class MainMenuState extends MusicBeatState
 			}); 
 	}
 
-	function bgClick()
+	function bgColor()
 		{
-			if(clickCount > 1)
-				clickCount = 0;
+			if(bgBeat > 1)
+				bgBeat = 0;
 
-			switch(clickCount)
+			switch(bgBeat)
 			{
 				case 0:
 					colorEntry = 0xFF8971f9;
@@ -312,7 +312,7 @@ class MainMenuState extends MusicBeatState
 			}
 
 			FlxTween.color(movingBG, 0.7, colorEntry, 0xfffde871, {ease: FlxEase.quadOut});
-			clickCount++;	
+			bgBeat++;	
 		}
 
         function select()
