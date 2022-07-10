@@ -218,6 +218,7 @@ class MainMenuState extends MusicBeatState
 			{
 				select();
 			}
+		}
 			
 		FlxG.watch.addQuick("beatShit", curBeat);
 
